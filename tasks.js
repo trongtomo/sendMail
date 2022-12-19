@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 var moment = require("moment");
 var nodemailer = require("nodemailer");
 
@@ -5,6 +7,10 @@ const http = require("http"); // or 'https' for https:// URLs
 const fs = require("fs");
 const { log } = require("console");
 
+//env Email
+const userEmail = process.env.MAIL_USER;
+const passEmail = process.env.MAIL_PASS;
+//request http
 const baseUrl = "http://192.168.1.32:92";
 const start_date = moment().subtract(2, "day").format("DD-MM-YYYY");
 const end_date = moment().subtract(1, "day").format("DD-MM-YYYY");
@@ -21,17 +27,17 @@ const request = http.get(
     });
   }
 );
-
-//2 auth and create app
+//2 step verify auth and create app password on gmail
 let mailTransporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "binguyenquoctrong@gmail.com",
-    pass: "pfdkroflbntfqvcx",
+    user: userEmail,
+    pass: passEmail,
   },
 });
+
 let mailDetails = {
-  from: "binguyenquoctrong@gmail.com",
+  from: userEmail,
   to: "thanhnguyet@phumyphuong.vn",
   cc: [
     "quangvinh@phumyphuong.vn,",
