@@ -10,6 +10,9 @@
 - Change your email
 - Using password above
 
+### Edit you mail content, sender and receiver
+
+- Config your message like [this](https://nodemailer.com/message/)
 ### Create a bat file with your node directories in it
 
 Create txt file name whatever you want, for me is **ReportTwiceDaily**

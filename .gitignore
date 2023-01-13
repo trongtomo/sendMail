@@ -4,3 +4,6 @@ node_modules
 
 # local env files
 .env
+
+# My personal task
+tasks.real.js
